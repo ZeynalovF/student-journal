@@ -15,7 +15,8 @@ all_commands = {
     "help": "Show all commands",
     "exit": "Ends program",
     "st": "Show all students data",
-    "st <ID>": "Shows selected student data"
+    "st <ID>": "Shows selected student data",
+    "st_add": "Add new student"
 }
 
 while True:
@@ -35,7 +36,7 @@ while True:
             st_id = entered[1]
 
             if st_id not in students:
-                print("Student ID not found!")
+                print("Student ID not found!\n")
                 continue
 
 
@@ -83,6 +84,22 @@ while True:
                     grades_str = " ".join(grades)
 
                 print(f"{st_id} - {student["name"]} - {student["group"]} - {grades_str}")
+
+    elif command == "st_add":
+        st_id = input("Enter student ID: ")
+        if st_id in students:
+            print("Student with this ID already exists.\n")
+            continue
+        
+        st_name = input("Enter student name: ")
+        st_group = input("Enter student group: ")
+        st_grades = []
+
+        student = {"name": st_name, "group": st_group, "grades": st_grades}
+        
+        students[st_id] = student
+
+        print("Student added!")
 
     else:
         print("Command not found. Enter `help` for all commands.")
