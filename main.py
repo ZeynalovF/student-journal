@@ -29,7 +29,23 @@ while True:
     elif command == "exit":
         print("Goodbye!")
         break
+
     elif command == "st":
-        pass
+        print("ID - Name - Group - Grades")
+        for st_id in students.keys():
+            student = students[st_id]
+            grades = student["grades"]
+
+            for i in range(len(grades)):
+                grades[i] = str(grades[i])
+
+            if len(grades) == 0:
+                grades_str = "Empty grades"
+            else:
+                grades_str = " ".join(grades)
+
+            print(f"{st_id} - {student["name"]} - {student["group"]} - {grades_str}")
+
+
     
     print()
