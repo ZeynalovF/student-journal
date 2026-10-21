@@ -20,7 +20,7 @@ all_commands = {
 }
 
 while True:
-    entered = input("Enter command: ").split()
+    entered = input("Enter command: ").split()  # st_rm <ID>
     command = entered[0]
     print()
     if command == "help":
@@ -100,6 +100,15 @@ while True:
         students[st_id] = student
 
         print("Student added!")
+
+    elif command == "st_rm":
+        st_id = entered[1]
+
+        if st_id in students:
+            del students[st_id]
+            print("Student deleted!")
+        else:
+            print("Student with this ID not found!")
 
     else:
         print("Command not found. Enter `help` for all commands.")
