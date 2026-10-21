@@ -27,7 +27,8 @@ while True:
             print(f"{key} - {all_commands[key]}")
 
     elif command == "exit":
-        pass
+        print("Goodbye!")
+        break
     elif command == "st":
         pass
     
